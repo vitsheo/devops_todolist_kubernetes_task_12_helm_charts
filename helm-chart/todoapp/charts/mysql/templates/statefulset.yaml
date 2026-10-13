@@ -21,10 +21,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: {{ .Values.nodeAffinity.key }}
+              - key: {{ .Values.nodeAffinity.key }}  # Коректне зчитування ключа
                 operator: In
                 values:
-                - {{ .Values.nodeAffinity.value | quote }}
+                - {{ .Values.nodeAffinity.value | quote }}  # Коректне зчитування значення
       containers:
       - name: mysql
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

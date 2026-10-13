@@ -4,7 +4,7 @@ metadata:
   name: {{ .Chart.Name }}-deploy
   namespace: {{ .Values.namespace }}
 spec:
-  replicas: {{ .Values.hpa.minReplicas }}
+  replicas: {{ .Values.replicaCount }}  # Використовуємо дефолтні репліки замість HPA змінної
   strategy:
     type: RollingUpdate
     rollingUpdate:

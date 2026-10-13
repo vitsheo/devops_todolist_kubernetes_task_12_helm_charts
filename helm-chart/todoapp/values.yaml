@@ -1,5 +1,6 @@
 namespace: todoapp
 serviceAccountName: todo-sa
+replicaCount: 2  # Окреме значення для дефолтних реплік, щоб не конфліктувати з HPA
 
 image:
   repository: python
@@ -38,9 +39,8 @@ secrets:
   DB_HOST: "todoapp-mysql"
   DB_NAME: "tododb"
 
-# Налаштування для вкладеного суб-чарту mysql
+# Налаштування для суб-чарту mysql (прибрали конфліктний namespace звідси)
 mysql:
-  namespace: todoapp
   image:
     repository: mysql
     tag: "8.0"
