@@ -51,4 +51,4 @@ spec:
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: {{ .Values.storageRequest }}
+          storage: {{ .Values.pvc.storageRequest }}

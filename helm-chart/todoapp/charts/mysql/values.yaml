@@ -3,7 +3,8 @@ image:
   repository: mysql
   tag: "8.0"
 replicas: 1
-storageRequest: 2Gi
+pvc:
+  storageRequest: 2Gi
 resources:
   requests:
     memory: "512Mi"
