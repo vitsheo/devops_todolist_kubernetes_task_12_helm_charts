@@ -37,7 +37,7 @@ pvc:
 
 secrets:
   DB_HOST: "todoapp-mysql"
-  DB_NAME: "tododb"
+  DB_NAME: "todo db"
 
 # Налаштування для суб-чарту mysql (прибрали конфліктний namespace звідси)
 mysql:
@@ -57,7 +57,7 @@ mysql:
   nodeAffinity:
     key: "app"
     value: "mysql"
-  tolerations:
+  toleration:
     - key: "app"
       operator: "Equal"
       value: "mysql"
