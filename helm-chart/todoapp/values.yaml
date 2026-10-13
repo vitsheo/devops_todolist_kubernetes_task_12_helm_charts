@@ -1,6 +1,6 @@
 namespace: todoapp
 serviceAccountName: todo-sa
-replicaCount: 2  # Окреме значення для дефолтних реплік, щоб не конфліктувати з HPA
+replicaCount: 2
 
 image:
   repository: python
@@ -37,9 +37,9 @@ pvc:
 
 secrets:
   DB_HOST: "todoapp-mysql"
-  DB_NAME: "todo db"
+  DB_NAME: "tododb"
 
-# Налаштування для суб-чарту mysql (прибрали конфліктний namespace звідси)
+# Налаштування для суб-чарту mysql
 mysql:
   image:
     repository: mysql
@@ -56,8 +56,9 @@ mysql:
       cpu: "1000m"
   nodeAffinity:
     key: "app"
-    value: "mysql"
-  toleration:
+    values:
+      - "mysql"  # Виправлено на масив для консистентності
+  tolerations:   # Виправлено на множину, щоб збігалося з шаблоном
     - key: "app"
       operator: "Equal"
       value: "mysql"

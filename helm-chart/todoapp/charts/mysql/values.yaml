@@ -14,7 +14,8 @@ resources:
     cpu: "1000m"
 nodeAffinity:
   key: "app"
-  value: "mysql"
+  values:
+    - "mysql"
 tolerations:
   - key: "app"
     operator: "Equal"
